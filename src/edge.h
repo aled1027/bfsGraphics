@@ -8,14 +8,14 @@
 class Edge {
 public: 
 
-	Edge(Node&, Node&);
+	Edge(const Node*, const Node*);
 	~Edge();
 	void draw();
 	void setColor1();
 	void setColor2();
 private:
-	Node start;
-	Node end;
+	const Node *start;
+	const Node *end;
 	ofColor color;
 	ofColor color1;
 	ofColor color2;

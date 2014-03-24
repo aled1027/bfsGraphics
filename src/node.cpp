@@ -10,20 +10,20 @@ Node::Node(int _id, int r, int _x, int _y) {
 	radius = 50;
 	whichColor = 1;
 	color.set(0,255,0);
-
 }
 
 Node::~Node() {
 	return;
 }
 
-bool Node::checkDistance(int _a, int _b) {
+bool Node::checkClick(int _a, int _b) {
+	// checks if distance from click to center of circle (x,y) is less than the radius
+	// ie, was the click inside the shape?
 	if (ofDist(x, y, _a, _b) < radius) {
 		return true;
 	} else {
 		return false;
 	}
-
 }
 
 void Node::mousePressed() {
@@ -47,10 +47,10 @@ void Node::draw() {
 	ofCircle(x, y, radius);
 }
  
-pair<int,int> Node::getCoords() {
+pair<int,int> Node::getCoords() const {
 	return make_pair(x,y);
 }
 
-int Node::getId() {
+int Node::getId() const {
 	return id;
 }

@@ -1,6 +1,6 @@
 #include "edge.h"
 
-Edge::Edge(Node& _start, Node& _end) {
+Edge::Edge(const Node *_start, const Node *_end) {
 	start = _start;
 	end = _end;
 	color1.set(0,255,0);
@@ -22,8 +22,8 @@ void Edge::setColor2() {
 void Edge::draw(){
 	ofFill();
 	ofSetColor(color);
-	pair<int,int> begin = start.getCoords();
-	pair<int,int> stop = end.getCoords();
+	pair<int,int> begin = start->getCoords();
+	pair<int,int> stop = end->getCoords();
 	ofLine(begin.first, begin.second, stop.first+1, stop.second+1);
 }
 

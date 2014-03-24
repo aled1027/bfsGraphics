@@ -33,7 +33,7 @@ private:
 	Graph g;
 
 	// useful iterators
-	vector<Node>::iterator nodesIt;
+	vector<Node*>::iterator nodesIt;
 //	vector<Edge>::iterator edgesIt;
 
 };

@@ -17,15 +17,15 @@ public:
 
 	void addNode(int, int, int);
 	void addEdge(int x, int y);
-	vector<Node>::iterator getNodesBegin();
-	vector<Node>::iterator getNodesEnd();
-	vector<Node> getNodes();
-	vector<Edge> getEdges();
+	// vector<Node*>::iterator getNodesBegin();
+	// vector<Node*>::iterator getNodesEnd();
+	vector<Node*>& getNodes();
+	vector<Edge>& getEdges();
 	void BFS(int, int);
 
 private:
-	std::vector<Node> nodes;
-	std::vector<Node>::iterator nodesIt;
+	std::vector<Node*> nodes;
+	std::vector<Node*>::iterator nodesIt;
 
 	std::vector<Edge> edges;
 	std::vector<Edge>::iterator edgesIt;

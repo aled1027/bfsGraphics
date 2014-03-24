@@ -4,35 +4,33 @@ Graph::Graph() {
 	radius = 50;
 	// inefficient, but needed for Graph::addNode
 	for (int i=0; i<100; i++) {
-		nodes.push_back(Node());
+		nodes.push_back(0);
 	}
 }
 
 Graph::~Graph() {
+	for (nodesIt = nodes.begin(); nodesIt != nodes.end(); nodesIt++) {
+		if (*nodesIt) {
+	    	delete *nodesIt;
+	    	nodesIt = nodes.erase(nodesIt);
+		}
+	}
 }
 
 void Graph::addNode(int id, int x, int y) {
 	// make this so it can't be misued (add try, except or if-then-else)
-	nodes[id] = Node(id, radius, x, y);
+	nodes[id] = new Node(id, radius, x, y);
 }
 
 void Graph::addEdge(int _from, int _to) {
 	edges.push_back(Edge(nodes[_from], nodes[_to]));
 }
 
-vector<Node>::iterator Graph::getNodesBegin() {
-	return nodes.begin();
-}
-
-vector<Node>::iterator Graph::getNodesEnd() {
-	return nodes.end();
-}
-
-vector<Node> Graph::getNodes() {
+vector<Node*>& Graph::getNodes() {
 	return nodes;
 }
 
-vector<Edge> Graph::getEdges() {
+vector<Edge>& Graph::getEdges() {
 	return edges;
 }
 

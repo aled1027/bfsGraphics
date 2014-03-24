@@ -16,7 +16,6 @@ void testApp::setup(){
 	ofSetFrameRate(30);
 
 	// add nodes to graph
-
 	for (int i = 1; i<5; i++) {
 		g.addNode(i,i*150, 200); 
 		g.addNode(i+4, i*150, 400);
@@ -36,8 +35,9 @@ void testApp::draw(){
 
 	// Draw nodes
 	
-	for (nodesIt = g.getNodesBegin(); nodesIt != g.getNodesEnd(); nodesIt++) {
-		nodesIt->draw();
+	vector<Node*> vnp = g.getNodes(); // vector of all pointers to all nodes
+	for (nodesIt = vnp.begin(); nodesIt != vnp.end(); nodesIt++) {
+		if (*nodesIt) {	(*nodesIt)->draw(); } // if pointer is not null
 	}
 	//
 	//// Draw edges
@@ -70,8 +70,11 @@ void testApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button){
-	for (nodesIt = g.getNodesBegin(); nodesIt != g.getNodesEnd(); nodesIt++) {
-		if (nodesIt->checkDistance(x,y)) { nodesIt->mousePressed(); }
+	vector<Node*> vnp = g.getNodes(); // vector of all pointers to all nodes
+	for (nodesIt = vnp.begin(); nodesIt != vnp.end(); nodesIt++) {
+		if (*nodesIt) { // check if null
+			if ((*nodesIt)->checkClick(x,y)) { (*nodesIt)->mousePressed(); } // check if clicked inside 
+		}
 	}
 }
 

@@ -9,12 +9,12 @@ public:
 	Node();
 	Node(int, int, int, int);
 	~Node();
-	bool checkDistance(int, int);
+	bool checkClick(int, int);
 	void mousePressed();
 	void changeColor();
 	void draw();
-	pair<int,int> getCoords();
-	int getId();
+	pair<int,int> getCoords() const;
+	int getId() const;
 
 
 private:
