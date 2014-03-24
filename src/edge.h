@@ -1,5 +1,4 @@
-#ifndef edge_h
-#define edge_h
+#pragma once
 
 #include "ofMain.h"
 #include "node.h"
@@ -8,6 +7,7 @@
 
 class Edge {
 public: 
+
 	Edge(Node&, Node&);
 	~Edge();
 	void draw();
@@ -22,4 +22,3 @@ private:
 
 };
 
-#endif

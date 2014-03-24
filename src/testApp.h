@@ -9,7 +9,6 @@
 
 #include <iostream>
 #include <vector>
-#include <utility>
 
 class testApp : public ofBaseApp{
 public:
@@ -29,11 +28,12 @@ public:
 
 private:
 	// objects
+	
 	Logger logger;
 	Graph g;
 
 	// useful iterators
 	vector<Node>::iterator nodesIt;
-	vector<Edge>::iterator edgesIt;
+//	vector<Edge>::iterator edgesIt;
 
 };

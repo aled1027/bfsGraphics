@@ -9,24 +9,30 @@ Graph::Graph() {
 }
 
 Graph::~Graph() {
-
 }
 
 void Graph::addNode(int id, int x, int y) {
 	// make this so it can't be misued (add try, except or if-then-else)
-	nodes.at(id) = Node(id, radius, x, y);
+	nodes[id] = Node(id, radius, x, y);
 }
 
 void Graph::addEdge(int _from, int _to) {
 	edges.push_back(Edge(nodes[_from], nodes[_to]));
 }
 
+vector<Node>::iterator Graph::getNodesBegin() {
+	return nodes.begin();
+}
 
-vector<Node>& Graph::getNodes() {
+vector<Node>::iterator Graph::getNodesEnd() {
+	return nodes.end();
+}
+
+vector<Node> Graph::getNodes() {
 	return nodes;
 }
 
-vector<Edge>& Graph::getEdges() {
+vector<Edge> Graph::getEdges() {
 	return edges;
 }
 

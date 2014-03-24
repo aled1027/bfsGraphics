@@ -16,13 +16,14 @@ void testApp::setup(){
 	ofSetFrameRate(30);
 
 	// add nodes to graph
+
 	for (int i = 1; i<5; i++) {
 		g.addNode(i,i*150, 200); 
 		g.addNode(i+4, i*150, 400);
 	}
 	// add edges to graph
-	g.addEdge(1,2);
-	g.addEdge(4,6);
+	//g.addEdge(1,2);
+	//g.addEdge(4,6);
 }
 //--------------------------------------------------------------
 void testApp::update(){
@@ -31,24 +32,22 @@ void testApp::update(){
 //--------------------------------------------------------------
 void testApp::draw(){
 	ofBackground(ofColor::black);
-	ofBackgroundGradient(ofColor::white,ofColor(0,0,255), OF_GRADIENT_CIRCULAR);
-	ofSetColor(0, 255, 0);
-	ofFill();
+	ofBackgroundGradient(ofColor::white,ofColor(0,0,255), OF_GRADIENT_CIRCULAR); // blue/white
 
 	// Draw nodes
-	vector<Node> vn = g.getNodes();
-	for (nodesIt = vn.begin(); nodesIt != vn.end(); nodesIt++) { // can't use for_each here?
+	
+	for (nodesIt = g.getNodesBegin(); nodesIt != g.getNodesEnd(); nodesIt++) {
 		nodesIt->draw();
 	}
-	
-	// Draw edges
-	vector<Edge> ve = g.getEdges();
-	std::cout << ve.size() << std::endl;
-	for (edgesIt = ve.begin(); edgesIt != ve.end(); edgesIt++) {
-		edgesIt->draw();
-	}
+	//
+	//// Draw edges
+	//vector<Edge> ve = g.getEdges();
+	//for (edgesIt = ve.begin(); edgesIt != ve.end(); edgesIt++) {
+	//	edgesIt->draw();
+	//}
 
 	// Draw framerate
+	ofSetColor(0, 255, 0); //green
 	ofDrawBitmapString(ofToString(ofGetFrameRate())+"fps", 10, 15);
 }
 
@@ -71,6 +70,9 @@ void testApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button){
+	for (nodesIt = g.getNodesBegin(); nodesIt != g.getNodesEnd(); nodesIt++) {
+		if (nodesIt->checkDistance(x,y)) { nodesIt->mousePressed(); }
+	}
 }
 
 //--------------------------------------------------------------

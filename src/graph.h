@@ -1,6 +1,4 @@
-#ifndef graph_h
-#define graph_h
-
+#pragma once
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -19,8 +17,10 @@ public:
 
 	void addNode(int, int, int);
 	void addEdge(int x, int y);
-	vector<Node>& getNodes();
-	vector<Edge>& getEdges();
+	vector<Node>::iterator getNodesBegin();
+	vector<Node>::iterator getNodesEnd();
+	vector<Node> getNodes();
+	vector<Edge> getEdges();
 	void BFS(int, int);
 
 private:
@@ -31,4 +31,3 @@ private:
 	std::vector<Edge>::iterator edgesIt;
 	int radius;
 };
-#endif
