@@ -309,7 +309,7 @@ obj/linux64/Release/src/main.o: src/main.cpp \
  ../../../libs/openFrameworks/video/ofGstVideoPlayer.h \
  ../../../libs/openFrameworks/3d/ofCamera.h \
  ../../../libs/openFrameworks/3d/ofEasyCam.h src/testApp.h src/graph.h \
- src/node.h src/edge.h src/logger/logger.h
+ src/node_edge.h src/logger/logger.h
 
 ../../../libs/openFrameworks/ofMain.h:
 
@@ -967,8 +967,6 @@ src/testApp.h:
 
 src/graph.h:
 
-src/node.h:
-
-src/edge.h:
+src/node_edge.h:
 
 src/logger/logger.h:

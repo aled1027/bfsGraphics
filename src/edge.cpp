@@ -1,22 +1,16 @@
-#include "edge.h"
+#include "node_edge.h"
 
-Edge::Edge(const Node *_start, const Node *_end) {
+Edge::Edge(Node *_start, Node *_end) {
 	start = _start;
 	end = _end;
-	color1.set(0,255,0);
-	color2.set(0,0,255);
-	setColor1();
+	color.set(0,255,0); // initialize to green
+}
+
+void Edge::changeColor(int _r, int _g, int _b) {
+	color.set(_r,_g,_b);
 }
 
 Edge::~Edge() {
-}
-
-void Edge::setColor1() {
-	color = color1;
-}
-
-void Edge::setColor2() {
-	color = color2;
 }
 
 void Edge::draw(){
@@ -27,4 +21,9 @@ void Edge::draw(){
 	ofLine(begin.first, begin.second, stop.first+1, stop.second+1);
 }
 
-
+int Edge::getStartId() const {
+	return start->getId();
+}
+int Edge::getEndId() const {
+	return end->getId();
+}

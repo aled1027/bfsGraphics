@@ -308,7 +308,7 @@ obj/linux64/Release/src/graph.o: src/graph.cpp src/graph.h \
  ../../../libs/openFrameworks/video/ofVideoPlayer.h \
  ../../../libs/openFrameworks/video/ofGstVideoPlayer.h \
  ../../../libs/openFrameworks/3d/ofCamera.h \
- ../../../libs/openFrameworks/3d/ofEasyCam.h src/node.h src/edge.h
+ ../../../libs/openFrameworks/3d/ofEasyCam.h src/node_edge.h
 
 src/graph.h:
 
@@ -964,6 +964,4 @@ src/graph.h:
 
 ../../../libs/openFrameworks/3d/ofEasyCam.h:
 
-src/node.h:
-
-src/edge.h:
+src/node_edge.h:

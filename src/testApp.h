@@ -3,8 +3,7 @@
 #include "ofMain.h"
 
 #include "graph.h"
-#include "node.h"
-#include "edge.h"
+#include "node_edge.h"
 #include "logger/logger.h"
 
 #include <iostream>
@@ -33,7 +32,5 @@ private:
 	Graph g;
 
 	// useful iterators
-	vector<Node*>::iterator nodesIt;
-//	vector<Edge>::iterator edgesIt;
 
 };

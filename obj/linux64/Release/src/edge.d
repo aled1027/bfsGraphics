@@ -1,4 +1,4 @@
-obj/linux64/Release/src/edge.o: src/edge.cpp src/edge.h \
+obj/linux64/Release/src/edge.o: src/edge.cpp src/node_edge.h \
  ../../../libs/openFrameworks/ofMain.h \
  ../../../libs/openFrameworks/utils/ofConstants.h \
  ../../../libs/tess2/include/tesselator.h \
@@ -308,9 +308,9 @@ obj/linux64/Release/src/edge.o: src/edge.cpp src/edge.h \
  ../../../libs/openFrameworks/video/ofVideoPlayer.h \
  ../../../libs/openFrameworks/video/ofGstVideoPlayer.h \
  ../../../libs/openFrameworks/3d/ofCamera.h \
- ../../../libs/openFrameworks/3d/ofEasyCam.h src/node.h
+ ../../../libs/openFrameworks/3d/ofEasyCam.h
 
-src/edge.h:
+src/node_edge.h:
 
 ../../../libs/openFrameworks/ofMain.h:
 
@@ -963,5 +963,3 @@ src/edge.h:
 ../../../libs/openFrameworks/3d/ofCamera.h:
 
 ../../../libs/openFrameworks/3d/ofEasyCam.h:
-
-src/node.h:

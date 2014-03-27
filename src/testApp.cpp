@@ -21,8 +21,13 @@ void testApp::setup(){
 		g.addNode(i+4, i*150, 400);
 	}
 	// add edges to graph
-	//g.addEdge(1,2);
-	//g.addEdge(4,6);
+	g.addEdge(1,2);
+	g.addEdge(1,6);
+	g.addEdge(2,3);
+	g.addEdge(3,4);
+	g.addEdge(4,5);
+	g.addEdge(5,6);
+	g.BFS(1,6);
 }
 //--------------------------------------------------------------
 void testApp::update(){
@@ -33,18 +38,22 @@ void testApp::draw(){
 	ofBackground(ofColor::black);
 	ofBackgroundGradient(ofColor::white,ofColor(0,0,255), OF_GRADIENT_CIRCULAR); // blue/white
 
-	// Draw nodes
-	
-	vector<Node*> vnp = g.getNodes(); // vector of all pointers to all nodes
-	for (nodesIt = vnp.begin(); nodesIt != vnp.end(); nodesIt++) {
-		if (*nodesIt) {	(*nodesIt)->draw(); } // if pointer is not null
-	}
-	//
-	//// Draw edges
-	//vector<Edge> ve = g.getEdges();
-	//for (edgesIt = ve.begin(); edgesIt != ve.end(); edgesIt++) {
-	//	edgesIt->draw();
-	//}
+	// BFS
+	g.drawState();
+
+//	// Draw nodes
+//	vector<Node*>::iterator nodesIt; // iterator for traversing
+//	vector<Node*> vNodes = g.getNodes(); // vector of all pointers to all nodes
+//	for (nodesIt = vNodes.begin(); nodesIt != vNodes.end(); nodesIt++) {
+//		if (*nodesIt) {	(*nodesIt)->draw(); } // if pointer is not null
+//	}
+//
+//	// Draw edges
+//	vector<Edge*>::iterator edgesIt;  // iterator for traversing
+//	vector<Edge*> vEdges = g.getEdges(); // vector of all pointers to all nodes
+//	for (edgesIt = vEdges.begin(); edgesIt != vEdges.end(); edgesIt++) {
+//		if (*edgesIt) {	(*edgesIt)->draw(); } // if pointer is not null
+//	}
 
 	// Draw framerate
 	ofSetColor(0, 255, 0); //green
@@ -53,6 +62,7 @@ void testApp::draw(){
 
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
+	g.incrementStateCounter();
 }
 
 //--------------------------------------------------------------
@@ -70,12 +80,13 @@ void testApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button){
-	vector<Node*> vnp = g.getNodes(); // vector of all pointers to all nodes
-	for (nodesIt = vnp.begin(); nodesIt != vnp.end(); nodesIt++) {
-		if (*nodesIt) { // check if null
-			if ((*nodesIt)->checkClick(x,y)) { (*nodesIt)->mousePressed(); } // check if clicked inside 
-		}
-	}
+	//vector<Node*>::iterator nodesIt;
+	//vector<Node*> vnp = g.getNodes(); // vector of all pointers to all nodes
+	//for (nodesIt = vnp.begin(); nodesIt != vnp.end(); nodesIt++) {
+	//	if (*nodesIt) { // check if null
+	//		if ((*nodesIt)->checkClick(x,y)) { (*nodesIt)->mousePressed(); } // check if clicked inside 
+	//	}
+	//}
 }
 
 //--------------------------------------------------------------

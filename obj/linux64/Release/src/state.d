@@ -1,4 +1,4 @@
-obj/linux64/Release/src/node.o: src/node.cpp src/node_edge.h \
+obj/linux64/Release/src/state.o: src/state.cpp src/node_edge.h \
  ../../../libs/openFrameworks/ofMain.h \
  ../../../libs/openFrameworks/utils/ofConstants.h \
  ../../../libs/tess2/include/tesselator.h \

@@ -2,11 +2,11 @@
 #include <iostream>
 #include <vector>
 #include <queue>
+#include <algorithm>
 #include <utility>
 
 #include "ofMain.h"
-#include "node.h"
-#include "edge.h"
+#include "node_edge.h"
 
 using namespace std;
 
@@ -17,17 +17,26 @@ public:
 
 	void addNode(int, int, int);
 	void addEdge(int x, int y);
-	// vector<Node*>::iterator getNodesBegin();
-	// vector<Node*>::iterator getNodesEnd();
 	vector<Node*>& getNodes();
-	vector<Edge>& getEdges();
-	void BFS(int, int);
+	vector<Edge*>& getEdges();
+
+	// related to BFS
+	void BFS(int,int);
+	bool isConnected(int,int);
+	void saveState();
+	void drawState();
+	void incrementStateCounter();
 
 private:
 	std::vector<Node*> nodes;
 	std::vector<Node*>::iterator nodesIt;
 
-	std::vector<Edge> edges;
-	std::vector<Edge>::iterator edgesIt;
-	int radius;
+	std::vector<Edge*> edges;
+	std::vector<Edge*>::iterator edgesIt;
+	int radius; // radius we want our nodes to be
+	int num_nodes;
+
+	// related to BFS
+	std::vector<State*> BFSstates; // remember to delete // haven't done this yet
+	int stateCounter;
 };
